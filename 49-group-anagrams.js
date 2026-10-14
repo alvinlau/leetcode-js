@@ -37,7 +37,7 @@
 var groupAnagrams = function (strs) {
     const groups = new Map();
 
-    for (str of strs) {
+    for (const str of strs) {
         const sorted = [...str].sort().join('');
         groups.has(sorted) ?
             groups.get(sorted).push(str) :

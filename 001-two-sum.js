@@ -39,18 +39,12 @@ var twoSum = function (nums, target) {
     const seen = new Map();
     let result = [];
 
-    nums.find((num, i) => {
+    for (const [i, num] of nums.entries()) {
         // find the complement
         const comp = target - num;
-        // longer basic version of the if block
-        // if (seen.has(comp)) {
-        //     console.log('found comp');
-        //     result = [seen.get(comp), i];
-        //     return true;
-        // }
         if (seen.has(comp)) { return (result = [seen.get(comp), i]) };
         seen.set(num, i);
-    });
+    }
 
     return result;
 };

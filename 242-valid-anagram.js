@@ -41,9 +41,11 @@ const mapEquals = (map1, map2) => {
  * @return {boolean}
  */
 var isAnagram = function (s, t) {
+    if (s.length !== t.length) return false;
+
     // tally maps for s and t
     const ss = tallyMap([...s]);
     const tt = tallyMap([...t]);
 
-    return mapEquals(ss, tt) && mapEquals(tt, ss);
+    return mapEquals(ss, tt);
 };

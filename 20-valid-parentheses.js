@@ -45,7 +45,7 @@ var isValid = function (s) {
     const stack = [];
     const pairings = { '(': ')', '[': ']', '{': '}' };
 
-    for (char of [...s]) {
+    for (const char of s) {
         const top = stack.at(-1);
         (char === pairings[top]) ? stack.pop() : stack.push(char);
     }
