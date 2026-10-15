@@ -34,13 +34,10 @@
  */
 var topKFrequent = function (nums, k) {
     const tally = nums.reduce((tally, num) => {
-        const value = tally.has(num) ? tally.get(num) + 1 : 1;
-        tally.set(num, value)
+        tally.set(num, (tally.get(num) ?? 0) + 1);
         return tally;
     }, new Map());
 
     const sorted = [...tally].sort((a, b) => b[1] - a[1]);
-    const sortedKeys = sorted.map(([num, count]) => num);
-
-    return sortedKeys.slice(0, k);
+    return sorted.slice(0, k).map(([num]) => num);
 };
